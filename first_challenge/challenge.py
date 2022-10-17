@@ -11,6 +11,6 @@ def main():
     ## print() can be given a series of objects separated by a comma
     print("Hello,", name_input, "! Happy ", day_input, "!")
 
-
+    print(f"Hello, {name_input}! Happy {day_input}!")
 main()
 
