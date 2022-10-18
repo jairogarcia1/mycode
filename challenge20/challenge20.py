@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
-wordbank= ["indentation", "spaces"]
 
-tlgstudents= ["Aaron", "Andy", "Asif", "Brent", "Cedric", "Chris", "Cory", "Ebrima", "Franco", "Greg", "Hoon", "Joey", "Jordan", "JC", "LB", "Mabel", "Shon", "Pat", "Zach"]
+''' Alta3 Research | JGarcia Lists Challenge '''
 
-wordbank.append(4)
+#random module
+import random
 
-#print(wordbank)
+def main():
+    wordbank= ["indentation", "spaces"]
 
-num = int(input("Choose a number between 0 and 18: "))
+    tlgstudents= ["Aaron", "Andy", "Asif", "Brent", "Cedric", "Chris", "Cory", "Ebrima", "Franco", "Greg", "Hoon", "Joey", "Jordan", "JC", "LB", "Mabel", "Shon", "Pat", "Zach"]
 
-student_name= tlgstudents[num]
+    wordbank.append(4)
 
-print(tlgstudents[0] + " always uses " + num.__str__() + " spaces to indent.")
+    #print(wordbank)
+
+    #num = int(input("Choose a number between 0 and 18: "))
+    num = random.randrange(0,18)
+    student_name= tlgstudents[num]
+
+    print(student_name + " always uses " + num.__str__() + " spaces to indent.")
+
+
+main()
