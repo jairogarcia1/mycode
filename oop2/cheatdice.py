@@ -31,3 +31,19 @@ class Cheat_Loaded_Dice(Player): # inheritance of Player
               self.dice[i] += 1
           i += 1
 
+
+# if total dice is under 9, get a re-roll
+class Cheat_Mulligan(Player):
+    def cheat(self):
+       if sum(self.dice) <= 9:
+           self.dice = []
+           for i in range(3):
+              self.dice.append(randint(1,6))
+
+
+# first die roll is lucky and can't roll under a 3
+class Cheat_Lucky_Die(Player):
+    def cheat(self):
+        if self.dice[0] < 3:
+           self.dice[0]= randint(3,6)
+
