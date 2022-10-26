@@ -3,8 +3,8 @@
    api.open-notify.org/astros.json | Alta3 Research"""
 
 # notice we no longer need to import urllib.request or json
-import requests
-
+import urllib.request
+import json
 ## Define URL
 MAJORTOM = 'http://api.open-notify.org/astros.json'
 
@@ -12,7 +12,7 @@ def main():
     """runtime code"""
 
     ## Call the webservice
-    groundctrl = requests.get(MAJORTOM)
+    groundctrl = urllib.request.urlopen(MAJORTOM)
     # send a post with requests.post()
     # send a put with requests.put()
     # send a delete with requests.delete()
@@ -20,15 +20,10 @@ def main():
 
     ## strip the json off the 200 that was returned by our API
     ## translate the json into python lists and dictionaries
-    helmetson = groundctrl.json()
-
+    helmet = groundctrl.read()
+    
+    helmetson = json.loads(helmet.decode("utf-8"))
     ## display our Pythonic data
-    print("\n\nConverted Python data")
-    print(helmetson)
-
-    print('\n\nPeople in Space: ', helmetson['number'])
-    people = helmetson['people']
-    print(people)
     
     print("\n\n")
     print("People in space: " + str(helmetson["number"]))
